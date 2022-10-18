@@ -1,0 +1,30 @@
+body {
+  background: #a8aaad;
+  font-family: arial, sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+.col-2:hover,
+.col:hover {
+  color: #1062dc;
+}
+
+.weather-app {
+  border: 1px solid #fff4d7;
+  padding: 15px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+.forecast-temp {
+  font-size: 10px;
+}
+
+.col-2:hover {
+  border: 1px solid #132743;
+  border-radius: 4px;
+}
