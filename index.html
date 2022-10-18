@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weatherapp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form class="form-control" id="form-control">
+          <input
+            type="search"
+            id="city-input"
+            placeholder="Enter a City"
+            autofocus="on"
+          />
+          <input type="submit" value="Search" class="btn btn-primary" />
+        </form>
+        <br />
+        <header>
+          <div class="current-day">Thur 17:26</div>
+          <h1 id="city">Ratshausen</h1>
+          <span id="current-temp">11</span><span>°C</span>
+          <br />
+          <div class="row">
+            <div class="col">Feels Like:<span id="feel">15</span>°</div>
+            <div class="col">Wind:<span id="wind">6</span>km/h</div>
+            <div class="col">Humidity:<span id="humidity">88</span>%</div>
+          </div>
+        </header>
+        <br />
+        <p>
+          <em> Next 6 Days </em>
+        </p>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-2" class="temp-day">
+                <div class="forecast-day">Fri</div>
+                <div class="forecast-icon">☀️</div>
+                <div class="forecast-temp">15°C | 3°C</div>
+              </div>
+              <div class="col-2" class="temp-day">
+                <div class="forecast-day">Sat</div>
+                <div class="forecast-icon">🌥</div>
+                <div class="forecast-temp">17°C | 8°C</div>
+              </div>
+              <div class="col-2" class="temp-day">
+                <div class="forecast-day">Sun</div>
+                <div class="forecast-icon">🌧</div>
+                <div class="forecast-temp">14°C | 6°C</div>
+              </div>
+              <div class="col-2" class="temp-day">
+                <div class="forecast-day">Mon</div>
+                <div class="forecast-icon">🌧</div>
+                <div class="forecast-temp">14°C | 7°C</div>
+              </div>
+              <div class="col-2" class="temp-day">
+                <div class="forecast-day">Tue</div>
+                <div class="forecast-icon">🌧</div>
+                <div class="forecast-temp">14°C | 7°C</div>
+              </div>
+              <div class="col-2" class="temp-day">
+                <div class="forecast-day">Sun</div>
+                <div class="forecast-icon">🌧</div>
+                <div class="forecast-temp">14°C | 7°C</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
