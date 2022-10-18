@@ -29,6 +29,7 @@ header {
   border-radius: 4px;
 }
 
-.repository {
-  text-align: center;
+.footer {
+  margin: 20px auto;
+  max-width: 800px;
 }
