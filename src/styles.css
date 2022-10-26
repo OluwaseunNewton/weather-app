@@ -35,6 +35,16 @@ p,
   font-size: 16px;
   line-height: 19px;
 }
+#current-temp {
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 1;
+}
+#unit {
+  position: relative;
+  font-size: 16px;
+  top: -20px;
+}
 .forecast-temp {
   font-size: 10px;
 }
