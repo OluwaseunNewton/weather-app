@@ -7,7 +7,15 @@ function showDay(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let dayIndex = date.getDay();
   let day = days[dayIndex];
   return `${day} ${hour}:${minutes}`;
@@ -28,6 +36,8 @@ function showCityTemp(response) {
   document.querySelector("#feel").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
 }
 
 function enterCity(event) {
