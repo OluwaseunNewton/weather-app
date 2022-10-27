@@ -21,7 +21,7 @@ function showDay(date) {
   return `${day} ${hour}:${minutes}`;
 }
 let now = new Date();
-let currentDay = document.querySelector(".current-day");
+let currentDay = document.querySelector("#current-day");
 currentDay.innerHTML = showDay(now);
 
 function showCityTemp(response) {
@@ -38,6 +38,13 @@ function showCityTemp(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].description;
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function enterCity(event) {
