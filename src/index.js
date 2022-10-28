@@ -49,16 +49,19 @@ function showCityTemp(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-function enterCity(event) {
-  event.preventDefault();
+function search(city) {
   let apiKey = "39te550do00a1b7f4f7ed027cbfc823a";
   let apiEndpoint = "https://api.shecodes.io/weather/v1/current?";
   let unit = "metric";
-  let city = document.querySelector("#city-input").value;
   let apiUrl = `${apiEndpoint}query=${city}&key=${apiKey}&units=${unit}`;
-
   axios.get(apiUrl).then(showCityTemp);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
 let form = document.querySelector("#form-control");
-form.addEventListener("submit", enterCity);
+form.addEventListener("submit", handleSubmit);
