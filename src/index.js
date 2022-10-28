@@ -22,10 +22,10 @@ function formatDate(timestamp) {
 }
 
 function showCityTemp(response) {
+  celsiusTemperature = response.data.temperature.current;
   document.querySelector("#city").innerHTML = response.data.city;
-  document.querySelector("#current-temp").innerHTML = Math.round(
-    response.data.temperature.current
-  );
+  document.querySelector("#current-temp").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
@@ -62,6 +62,29 @@ function handleSubmit(event) {
   cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-search("Ratshausen");
+
+function showFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function showcelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#form-control");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showcelsiusTemperature);
+
+search("Ratshausen");
