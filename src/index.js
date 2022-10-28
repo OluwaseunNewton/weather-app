@@ -62,6 +62,6 @@ function handleSubmit(event) {
   cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-
+search("Ratshausen");
 let form = document.querySelector("#form-control");
 form.addEventListener("submit", handleSubmit);
