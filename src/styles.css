@@ -43,7 +43,15 @@ p,
 #description {
   text-transform: capitalize;
 }
-
+.update {
+  color: #878787;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 19px;
+}
+.update:first-letter {
+  text-transform: capitalize;
+}
 #unit {
   position: relative;
   font-size: 16px;

@@ -1,28 +1,25 @@
-function showDay(date) {
-  let hour = date.getHours();
-  if (hour < 10) {
-    hour = `0${hour}`;
-  }
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  if (hours < 10) {
+    minutes = `0${hours}`;
+  }
   let days = [
     "Sunday",
     "Monday",
-    "Tuesday",
+    "Tueday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
   ];
-  let dayIndex = date.getDay();
-  let day = days[dayIndex];
-  return `${day} ${hour}:${minutes}`;
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
 }
-let now = new Date();
-let currentDay = document.querySelector("#current-day");
-currentDay.innerHTML = showDay(now);
 
 function showCityTemp(response) {
   document.querySelector("#city").innerHTML = response.data.city;
@@ -39,6 +36,10 @@ function showCityTemp(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+
+  document.querySelector("#current-day").innerHTML = formatDate(
+    response.data.time * 1000
+  );
 
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
