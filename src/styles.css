@@ -77,10 +77,6 @@ p,
   border-radius: 4px;
 }
 
-.footer {
-  margin: 20px auto;
-  max-width: 800px;
-}
 .weather-forecast {
   margin-top: 20px;
   text-align: center;
@@ -96,4 +92,13 @@ p,
 }
 .weather-forecast-temperature-min {
   opacity: 0.5;
+}
+
+.footer {
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+a {
+  text-decoration: none;
 }
