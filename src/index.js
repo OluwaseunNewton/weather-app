@@ -21,7 +21,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
 
   let days = ["Thur", "Fri", "Sat", "Sun", "Mon", "Tue"];
@@ -52,6 +52,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "39te550do00a1b7f4f7ed027cbfc823a";
+  let unit = "metric";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=${unit}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showCityTemp(response) {
   celsiusTemperature = response.data.temperature.current;
   document.querySelector("#city").innerHTML = response.data.city;
@@ -78,6 +86,8 @@ function showCityTemp(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -119,4 +129,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showcelsiusTemperature);
 
 search("Ratshausen");
-displayForecast();
